@@ -1,4 +1,4 @@
-# generator-test [![Build Status](https://secure.travis-ci.org/phillipalexander/generator-test.png?branch=master)](https://travis-ci.org/phillipalexander/generator-test)
+# generator-test
 
 A simple generator for [Yeoman](http://yeoman.io) that makes it easy to start using Test Driven Development (TDD) while you karate-chop your way through algorthim-based programming challenges.
 
