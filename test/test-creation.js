@@ -23,11 +23,14 @@ describe('test generator', function () {
         var expected = [
             // add files you expect to exist here.
             '.jshintrc',
-            '.editorconfig'
+            '.editorconfig',
+            'index.html',
+            'spec/algorithm.js',
+            'src/algorithm.js'
         ];
 
         helpers.mockPrompt(this.app, {
-            'someOption': true
+            'suite': 'algorithm'
         });
         this.app.options['skip-install'] = true;
         this.app.run({}, function () {
