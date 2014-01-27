@@ -18,10 +18,10 @@
   </script>
 
   <!-- include source files here... -->
-  <script src="<%= _.slugify(file) %>"></script>
+  <script src="<%= file %>"></script>
 
   <!-- include spec files here... -->
-  <script src="spec/<%= _.slugify(file) %>"></script>
+  <script src="spec/<%= file %>"></script>
 
   <script>mocha.run()</script>
 </body>
