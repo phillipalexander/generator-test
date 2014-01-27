@@ -17,11 +17,12 @@ solution
 ├── package.json
 ├── spec
 │   └── algorithm.js
-└── src
-    └── algorithm.js
+└── algorithm.js
 ```
 
-After runnning the generator (see below), open `index.html`. Write your tests in the file created in the `/spec` dir, and your algorithm in the file in the `/src` dir.
+If the current working directory already contains any JavaScript files, then you'll be asked which of them you wish to write tests for. If there are no js files present, a starter file will be generated for you.
+
+After runnning the generator (see below), open `index.html`. Write your tests in the file created in the `/spec` dir, and your algorithm in the file in the current dir.
 
 ### What is Yeoman?
 
