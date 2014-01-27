@@ -1,6 +1,9 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+  "name": "<%= _.slugify(algorithm) %>",
+  "private": true,
+  "dependencies": {
+    "chai": "~1.8.0",
+    "mocha": "~1.14.0"
+  },
+  "devDependencies": {}
 }
-

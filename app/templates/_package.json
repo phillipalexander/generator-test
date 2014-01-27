@@ -1,5 +1,6 @@
 {
-  "name": "package",
+  "name": "<%= _.slugify(algorithm) %>",
+  "private": true,
   "version": "0.0.0",
   "dependencies": {}
 }
