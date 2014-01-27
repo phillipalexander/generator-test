@@ -33,7 +33,7 @@ TestGenerator.prototype.askFor = function askFor() {
   }];
 
   this.prompt(prompts, function (props) {
-    this.algorithm = this._.camelize(this._.slugify(this._.humanize(props.algorithm)));;
+    this.algorithm = this._.camelize(this._.slugify(this._.humanize(props.algorithm)));
     cb();
   }.bind(this));
 };
@@ -42,8 +42,8 @@ TestGenerator.prototype.app = function projectFiles() {
   this.template('_package.json', 'package.json');
   this.template('_bower.json', 'bower.json');
   this.template('_index.html', 'index.html');
-  this.template('_spec.js', 'spec/' + this.algorithm + '.js')
-  this.template('_src.js', 'src/' + this.algorithm + '.js')
+  this.template('_spec.js', 'spec/' + this.algorithm + '.js');
+  this.template('_src.js', 'src/' + this.algorithm + '.js');
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
 };
