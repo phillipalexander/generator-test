@@ -7,6 +7,10 @@ var yeoman = require('yeoman-generator');
 var TestGenerator = module.exports = function TestGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
+  this.argument('appname', { type: String, required: false });
+  this.appname = this.appname || path.basename(process.cwd());
+  this.appname = this._.camelize(this._.slugify(this._.humanize(this.appname)));
+
   this.on('end', function () {
     this.installDependencies({ skipInstall: options['skip-install'] });
   });
@@ -23,28 +27,23 @@ TestGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: true
+    name: 'algorithm',
+    message: 'Please enter a name for the algorithm you\'d like to test',
+    default: this.appname
   }];
 
   this.prompt(prompts, function (props) {
-    this.someOption = props.someOption;
-
+    this.algorithm = this._.camelize(this._.slugify(this._.humanize(props.algorithm)));;
     cb();
   }.bind(this));
 };
 
-TestGenerator.prototype.app = function app() {
-  this.mkdir('app');
-  this.mkdir('app/templates');
-
-  this.copy('_package.json', 'package.json');
-  this.copy('_bower.json', 'bower.json');
-};
-
-TestGenerator.prototype.projectfiles = function projectfiles() {
+TestGenerator.prototype.app = function projectFiles() {
+  this.template('_package.json', 'package.json');
+  this.template('_bower.json', 'bower.json');
+  this.template('_index.html', 'index.html');
+  this.template('_spec.js', 'spec/' + this.algorithm + '.js')
+  this.template('_src.js', 'src/' + this.algorithm + '.js')
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
 };
