@@ -1,9 +1,27 @@
 # generator-test [![Build Status](https://secure.travis-ci.org/phillipalexander/generator-test.png?branch=master)](https://travis-ci.org/phillipalexander/generator-test)
 
-A generator for [Yeoman](http://yeoman.io).
+A simple generator for [Yeoman](http://yeoman.io) that makes it easy to start using Test Driven Development (TDD) while you karate-chop your way through algorthim-based programming challenges.
 
 
 ## Getting Started
+
+This generator creates a simple mocha/chai TDD scaffold for your algorithm solution in the following format:
+
+```
+solution
+├── bower.json
+├── bower_components
+│   ├── chai
+│   └── mocha
+├── index.html
+├── package.json
+├── spec
+│   └── algorithm.js
+└── src
+    └── algorithm.js
+```
+
+After runnning the generator (see below), open `index.html`. Write your tests in the file created in the `/spec` dir, and your algorithm in the file in the `/src` dir.
 
 ### What is Yeoman?
 
@@ -34,12 +52,6 @@ Finally, initiate the generator:
 ```
 $ yo test
 ```
-
-### Getting To Know Yeoman
-
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
-
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
 
 ## License
