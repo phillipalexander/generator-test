@@ -55,7 +55,7 @@ TestGenerator.prototype.askFor = function askFor() {
 
   this.prompt(prompts, function (response) {
     this.file = response.file || response.algorithm + '.js';
-    this.algorithm = response.file.split('.')[0] || response.algorithm;
+    this.algorithm = response.algorithm || response.file.split('.')[0];
     cb();
   }.bind(this));
 };
