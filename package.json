@@ -1,9 +1,13 @@
 {
   "name": "generator-test",
-  "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "version": "1.0.0",
+  "description": "Yeoman based generator that creates a simple mocha/chai TDD scaffold for solving algorithms",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "algorithms",
+    "mocha",
+    "TDD",
+    "chai"
   ],
   "homepage": "https://github.com/phillipalexander/generator-test",
   "bugs": "https://github.com/phillipalexander/generator-test/issues",
