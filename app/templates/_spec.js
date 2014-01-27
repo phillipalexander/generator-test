@@ -4,7 +4,7 @@ describe('<%= algorithm %>()', function () {
   'use strict';
 
   it('exists', function () {
-    expect(<%= algorithm %>).to.be.a('function')
+    expect(<%= algorithm %>).to.be.a('function');
 
   });
 
