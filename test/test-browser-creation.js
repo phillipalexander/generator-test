@@ -16,23 +16,20 @@ var expectedFiles = [
   'index.html'
 ];
 
-describe('test node generator', function () {
+describe('test browser generator', function () {
 
   // -----------------------------------------------------------------------------
   // Test behavior when there are not pre-existing js files.
   // -----------------------------------------------------------------------------
   it('creates expected files when no .js files exist', function (done) {
-    helpers.run(path.join( __dirname, '../app'))
-      .inDir(path.join( __dirname, './temp'))
+    helpers.run(path.join(__dirname, '../app'))
+      .inDir(path.join(__dirname, './temp'))
       .withOptions({
         'skip-install': true 
       })
       .withPrompt({
         'environment': 'browser',
         'algorithm': 'algorithm'
-      })
-      .on('ready', function (generator) {
-        console.log("ready");
       })
       .on('end', function () {
         var expected = expectedFiles.concat([
@@ -46,8 +43,9 @@ describe('test node generator', function () {
   });
 
   it('leaves existing files intact when they exist', function (done) {
-    helpers.run(path.join( __dirname, '../app'))
-      .inDir(path.join( __dirname, './temp'))
+
+    helpers.run(path.join(__dirname, '../app'))
+      .inDir(path.join(__dirname, './temp'))
       .withOptions({
         'skip-install': true 
       })
@@ -56,7 +54,7 @@ describe('test node generator', function () {
         'file': 'myAlgo.js'
       })
       .on('ready', function (generator) {
-        var js = "var myAlgo = function () { return 'works' };";
+        var js = "var myAlgo = function () { return { method: function () {} }; };";
         fs.writeFileSync(path.join(__dirname, './temp/myAlgo.js'), js); 
       })
       .on('end', function () {
@@ -66,6 +64,9 @@ describe('test node generator', function () {
         ]);
         assert.file(expected);
         assert.fileContent('myAlgo.js', /myAlgo/);
+        // doesn't work as expected; figure out a better way to do this.
+        // eval(fs.readFileSync(path.join(__dirname, './temp/myAlgo.js'), 'utf8'));
+        // assert.implement(myAlgo(), ['method']);
         done();
       });
   });
