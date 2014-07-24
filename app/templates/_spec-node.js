@@ -1,17 +1,7 @@
-// run with mocha
+var path = require('path');
+var expect = require('chai').expect;
 
-var expect = require('chai').expect();
-
-var algorithmPath = '../<%= algorithm %>.js'
-
-try {
-  var <%= algorithm %> = require(algorithmPath);
-} catch (err) {}
-
-// either require threw or algorithm file doesn't export
-if (!<%= algorithm %>) {
-  eval(require('fs').readFileSync(algorithmPath));
-}
+var <%= algorithm %> = require(path.join(__dirname, '..', './<%= algorithm %>.js'));
 
 describe('<%= algorithm %>()', function () {
   'use strict';

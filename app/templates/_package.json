@@ -2,5 +2,7 @@
   "name": "<%= algorithm %>",
   "private": true,
   "version": "0.0.0",
-  "dependencies": {}
+  "dependencies": {<% if (environment === "Node") { %>
+      "chai": "~1.8.0"
+  <% } %>}
 }

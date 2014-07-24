@@ -38,6 +38,9 @@ describe('test browser generator', function () {
         ]);
         assert.file(expected);
         assert.fileContent('algorithm.js', /var algorithm = function ()/);
+        assert.fileContent('bower.json', /chai/);
+        assert.noFileContent('package.json', /chai/);
+        assert.noFileContent('./spec/algorithm.js', /require/);
         done();
       });
   });
@@ -64,6 +67,9 @@ describe('test browser generator', function () {
         ]);
         assert.file(expected);
         assert.fileContent('myAlgo.js', /myAlgo/);
+        assert.noFileContent('./spec/myAlgo.js', /require/);
+        assert.fileContent('bower.json', /chai/);
+        assert.noFileContent('package.json', /chai/);
         // doesn't work as expected; figure out a better way to do this.
         // eval(fs.readFileSync(path.join(__dirname, './temp/myAlgo.js'), 'utf8'));
         // assert.implement(myAlgo(), ['method']);

@@ -11,7 +11,8 @@ var expectedFiles = [
   '.jshintrc',
   '.editorconfig',
   '.bowerrc',
-  'package.json'
+  'package.json',
+  'bower.json'
 ];
 
 describe('test node generator', function () {
@@ -36,6 +37,9 @@ describe('test node generator', function () {
         ]);
         assert.file(expected);
         assert.fileContent('algorithm.js', /module\.exports = algorithm/);
+        assert.fileContent('./spec/algorithm.js', /require/);
+        assert.fileContent('package.json', /chai/);
+        assert.noFileContent('bower.json', /chai/);
         done();
       });
   });
@@ -61,6 +65,9 @@ describe('test node generator', function () {
         ]);
         assert.file(expected);
         assert.fileContent('myAlgo.js', /myAlgo/);
+        assert.fileContent('./spec/myAlgo.js',  /require/);
+        assert.fileContent('package.json', /chai/);
+        assert.noFileContent('bower.json', /chai/);
         assert.implement(require('./temp/myAlgo.js')(), ['method']);
         done();
       });
