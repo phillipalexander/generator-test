@@ -28,15 +28,19 @@ TestGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var allFiles = fs.readdirSync(process.cwd());
-  var jsFiles = [];
   var prompts = [];
 
-  for (var i = 0; i < allFiles.length; i++) {
-    var selectedFile = allFiles[i];
-    if (selectedFile.substr(selectedFile.length - 3) === '.js') {
-      jsFiles.push(selectedFile);
-    }
-  }
+  var jsFiles = allFiles.filter( function( file ) {
+    return file.substr(file.length - 3) === '.js';
+  });
+
+  prompts.push({
+    type: 'list',
+    name: 'environment',
+    message: 'Do you want to test your algorithm in the browser or with Node?',
+    choices: ['Node', 'browser'],
+    default: 'browser'
+  });
 
   if (jsFiles.length === 0) {
     prompts.push({
@@ -56,22 +60,28 @@ TestGenerator.prototype.askFor = function askFor() {
   this.prompt(prompts, function (response) {
     this.file = response.file || response.algorithm + '.js';
     this.algorithm = response.algorithm || response.file.split('.')[0];
+    this.environment = response.environment || 'browser';
     cb();
   }.bind(this));
 };
 
 TestGenerator.prototype.app = function projectFiles() {
-  this.template('_package.json', 'package.json');
-  this.template('_bower.json', 'bower.json');
-  this.template('_index.html', 'index.html');
-  this.template('_spec.js', 'spec/' + this.file);
-
   var fileExists = fs.existsSync(path.resolve(process.cwd(), this.file));
 
-  if (!fileExists) {
-    this.template('_src.js', this.file);
+  if (this.environment === 'Node') {
+    this.template('_spec-browser.js', 'spec/' + this.file);
+  } else {
+    this.template('_bower.json', 'bower.json');
+    this.template('_index.html', 'index.html');
+    this.template('_spec-browser.js', 'spec/' + this.file);
   }
 
+  if (!fileExists) {
+    this.template((this.environment === 'Node' ? '_src-node.js' : '_src-browser.js'), this.file);
+  }
+
+  this.template('_package.json', 'package.json');
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
+  this.copy('bowerrc', '.bowerrc');
 };
