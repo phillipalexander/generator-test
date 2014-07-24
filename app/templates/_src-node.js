@@ -6,5 +6,5 @@ var <%= algorithm %> = function () {
 }
 
 if ( typeof module !== "undefined" ) {
-  module.exports = algorithm;
+  module.exports = <%= algorithm %>;
 }

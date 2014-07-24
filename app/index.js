@@ -69,9 +69,8 @@ TestGenerator.prototype.app = function projectFiles() {
   var fileExists = fs.existsSync(path.resolve(process.cwd(), this.file));
 
   if (this.environment === 'Node') {
-    this.template('_spec-browser.js', 'spec/' + this.file);
+    this.template('_spec-node.js', 'spec/' + this.file);
   } else {
-    this.template('_bower.json', 'bower.json');
     this.template('_index.html', 'index.html');
     this.template('_spec-browser.js', 'spec/' + this.file);
   }
@@ -79,8 +78,9 @@ TestGenerator.prototype.app = function projectFiles() {
   if (!fileExists) {
     this.template((this.environment === 'Node' ? '_src-node.js' : '_src-browser.js'), this.file);
   }
-
+  
   this.template('_package.json', 'package.json');
+  this.template('_bower.json', 'bower.json');
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
   this.copy('bowerrc', '.bowerrc');
