@@ -1,0 +1,103 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.0.0-alpha-5
+3 info using node@v0.10.29
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add spec="." args=[".",null]
+8 verbose cache add local package /Users/phillipalexander/Documents/github/phillipalexander/generator-test
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/phillipalexander/.npm/3a52ce78-.lock
+11 verbose tar pack [ '/Users/phillipalexander/.npm/generator-test/1.0.3/package.tgz',
+11 verbose tar pack   '.' ]
+12 verbose tarball /Users/phillipalexander/.npm/generator-test/1.0.3/package.tgz
+13 verbose folder .
+14 info prepublish generator-test@1.0.3
+15 silly lockFile 1f1177db-tar tar://.
+16 verbose lock tar://. /Users/phillipalexander/.npm/1f1177db-tar.lock
+17 silly lockFile 669af5ca-generator-test-1-0-3-package-tgz tar:///Users/phillipalexander/.npm/generator-test/1.0.3/package.tgz
+18 verbose lock tar:///Users/phillipalexander/.npm/generator-test/1.0.3/package.tgz /Users/phillipalexander/.npm/669af5ca-generator-test-1-0-3-package-tgz.lock
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile 669af5ca-generator-test-1-0-3-package-tgz tar:///Users/phillipalexander/.npm/generator-test/1.0.3/package.tgz
+22 silly lockFile 669af5ca-generator-test-1-0-3-package-tgz tar:///Users/phillipalexander/.npm/generator-test/1.0.3/package.tgz
+23 silly lockFile 2efecbf9-npm-generator-test-1-0-3-package /Users/phillipalexander/.npm/generator-test/1.0.3/package
+24 verbose lock /Users/phillipalexander/.npm/generator-test/1.0.3/package /Users/phillipalexander/.npm/2efecbf9-npm-generator-test-1-0-3-package.lock
+25 silly lockFile 2efecbf9-npm-generator-test-1-0-3-package /Users/phillipalexander/.npm/generator-test/1.0.3/package
+26 silly lockFile 2efecbf9-npm-generator-test-1-0-3-package /Users/phillipalexander/.npm/generator-test/1.0.3/package
+27 silly lockFile 3a52ce78- .
+28 silly lockFile 3a52ce78- .
+29 silly publish { name: 'generator-test',
+29 silly publish   version: '1.0.3',
+29 silly publish   description: 'Yeoman based generator that creates a simple mocha/chai TDD scaffold for solving algorithms',
+29 silly publish   keywords: [ 'yeoman-generator', 'algorithms', 'mocha', 'TDD', 'chai' ],
+29 silly publish   homepage: 'https://github.com/phillipalexander/generator-test',
+29 silly publish   bugs: { url: 'https://github.com/phillipalexander/generator-test/issues' },
+29 silly publish   author:
+29 silly publish    { name: 'Phillip Alexander',
+29 silly publish      url: 'https://github.com/phillipalexander' },
+29 silly publish   main: 'app/index.js',
+29 silly publish   repository:
+29 silly publish    { type: 'git',
+29 silly publish      url: 'git://github.com/phillipalexander/generator-test.git' },
+29 silly publish   scripts: { test: 'mocha' },
+29 silly publish   dependencies: { 'yeoman-generator': '^0.17', chai: '^1.8.1', mocha: '^1.14.0' },
+29 silly publish   devDependencies: { mocha: '~1.14.0', chai: '~1.8.0' },
+29 silly publish   peerDependencies: { yo: '>=1.0.0' },
+29 silly publish   engines: { node: '>=0.8.0', npm: '>=1.2.10' },
+29 silly publish   licenses: [ { type: 'MIT' } ],
+29 silly publish   readme: '# generator-test\n\nA simple generator for [Yeoman](http://yeoman.io) that makes it easy to start using Test Driven Development (TDD) while you karate-chop your way through algorthim-based programming challenges.\n\n\n## Getting Started\n\nThis generator creates a simple mocha/chai TDD scaffold for your algorithm solution in the following format:\n\n```\nsolution\n├── bower.json\n├── bower_components\n│   ├── chai\n│   └── mocha\n├── index.html\n├── package.json\n├── spec\n│   └── algorithm.js\n└── algorithm.js\n```\n\nIf the current working directory already contains any JavaScript files, then you\'ll be asked which of them you wish to write tests for. If there are no js files present, a starter file will be generated for you.\n\nAfter runnning the generator (see below), open `index.html`. Write your tests in the file created in the `/spec` dir, and your algorithm in the file in the current dir.\n\n### What is Yeoman?\n\nTrick question. It\'s not a thing. It\'s this guy:\n\n![](http://i.imgur.com/JHaAlBJ.png)\n\nBasically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.\n\nNot every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*\n\n```\n$ npm install -g yo\n```\n\n### Yeoman Generators\n\nYeoman travels light. He didn\'t pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.\n\nTo install generator-test from npm, run:\n\n```\n$ npm install -g generator-test\n```\n\nFinally, initiate the generator:\n\n```\n$ yo test\n```\n\n\n## License\n\n[MIT License](http://en.wikipedia.org/wiki/MIT_License)\n',
+29 silly publish   readmeFilename: 'README.md',
+29 silly publish   gitHead: '57b9c20f02482c7e12bc9a0554bf51eab4937843',
+29 silly publish   _id: 'generator-test@1.0.3',
+29 silly publish   _shasum: 'b53e5975b9871d43e19f135fac7305b4b4b6977a',
+29 silly publish   _from: '.' }
+30 verbose mapToRegistry name generator-test
+31 verbose mapToRegistry uri https://registry.npmjs.org/generator-test
+32 verbose publish registryBase https://registry.npmjs.org/
+33 verbose request where is /generator-test
+34 verbose request registry https://registry.npmjs.org/
+35 verbose request id 587417af5d0229da
+36 verbose request url raw /generator-test
+37 verbose request url resolving [ 'https://registry.npmjs.org/', './generator-test' ]
+38 verbose request url resolved https://registry.npmjs.org/generator-test
+39 verbose request where is https://registry.npmjs.org/generator-test
+40 verbose request setting basic auth
+41 info trying registry request attempt 1 at 23:16:48
+42 http PUT https://registry.npmjs.org/generator-test
+43 http 403 https://registry.npmjs.org/generator-test
+44 verbose headers { date: 'Fri, 25 Jul 2014 06:16:49 GMT',
+44 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+44 verbose headers   'content-type': 'application/json',
+44 verbose headers   'cache-control': 'max-age=60',
+44 verbose headers   'content-length': '84',
+44 verbose headers   'accept-ranges': 'bytes',
+44 verbose headers   via: '1.1 varnish',
+44 verbose headers   'x-served-by': 'cache-sjc3124-SJC',
+44 verbose headers   'x-cache': 'MISS',
+44 verbose headers   'x-cache-hits': '0',
+44 verbose headers   'x-timer': 'S1406269009.114624,VS0,VE107',
+44 verbose headers   'keep-alive': 'timeout=10, max=50',
+44 verbose headers   connection: 'Keep-Alive' }
+45 error publish Failed PUT 403
+46 error Error: forbidden Cannot replace previously published version: 1.0.3: generator-test
+46 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:313:14)
+46 error     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:251:65)
+46 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:123:22)
+46 error     at Request.emit (events.js:98:17)
+46 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:893:14)
+46 error     at Request.emit (events.js:117:20)
+46 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:844:12)
+46 error     at IncomingMessage.emit (events.js:117:20)
+46 error     at _stream_readable.js:929:16
+46 error     at process._tickCallback (node.js:419:13)
+47 error If you need help, you may report this *entire* log,
+47 error including the npm and node versions, at:
+47 error     <http://github.com/npm/npm/issues>
+48 error System Darwin 13.2.0
+49 error command "node" "/usr/local/bin/npm" "publish"
+50 error cwd /Users/phillipalexander/Documents/github/phillipalexander/generator-test
+51 error node -v v0.10.29
+52 error npm -v 2.0.0-alpha-5
+53 verbose exit [ 1, true ]
