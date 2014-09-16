@@ -73,4 +73,28 @@ describe('test node generator', function () {
       });
   });
 
+  it('runs the generated test file in node using npm test', function (done) {
+    helpers.run(path.join(__dirname, '../app'))
+      .inDir(path.join(__dirname, './temp'))
+      .withOptions({
+        'skip-install': true
+      })
+      .withPrompt({
+        'environment': 'Node',
+        'file': 'myAlgo.js'
+      })
+      .on('ready', function (generator) {
+        var js = "var myAlgo = function () { return { method: function () {} }; }; module.exports = myAlgo;";
+        fs.writeFileSync(path.join(__dirname, './temp/myAlgo.js'), js);
+      })
+      .on('end', function () {
+        var expected = expectedFiles.concat([
+          'spec/myAlgo.js',
+          'myAlgo.js'
+        ]);
+        assert.fileContent('package.json', /test/);
+        done();
+      });
+  });
+
 });
