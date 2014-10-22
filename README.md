@@ -19,7 +19,7 @@ After installing Yeoman, you'll use generators to scaffold out specific types of
 ### Yeoman
 
 
-This generator is built using Yeoman, so you'll need to install that first with,
+Install Yeoman with,
 
 ```
 $ npm install -g yo
@@ -28,7 +28,7 @@ $ npm install -g yo
 ### Generator-Test
 
 
-After installing Yeoman, install generator-test from npm:
+Then nstall generator-test from npm:
 
 ```
 $ npm install -g generator-test
