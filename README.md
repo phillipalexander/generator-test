@@ -42,24 +42,47 @@ $ yo test
 
 ### Usage
 
-This genertor can build tests for/around JavaScript designed to be run in the browser, or code meant to be run using Node.js. It creates a simple mocha/chai TDD scaffold for your algorithm solution in the following general format:
+When invoked, this generator gives the option of creating a testing scaffold designed to be run in the browser, or one designed to be run with Node. 
 
-```
+#### Browser
+
+If you select 'browser' when prompted, A simple mocha/chai TDD scaffold for your algorithm solution with the following folder structure will be created:
+
+``` bash
 solution
 ├── bower.json
 ├── bower_components
 │   ├── chai
 │   └── mocha
 ├── index.html
+├── spec
+│   └── algorithm.js
+└── algorithm.js
+```
+
+After runnning the generator in browser mode, run the tests by opening `index.html`.
+
+#### Node
+
+If you select 'Node' when prompted, A simple mocha/chai TDD scaffold for your algorithm solution with the following folder structure will be created:
+
+``` bash
+solution
+├── node_modules
+│   └── chai
 ├── package.json
 ├── spec
 │   └── algorithm.js
 └── algorithm.js
 ```
 
+After runnning the generator in Node mode, run the tests via `npm test`.
+
+### Wrapping Up
+
 If the current working directory already contains any JavaScript files, then you'll be asked which of them you wish to write tests for. If there are no js files present, a starter file will be generated for you.
 
-After runnning the generator (see below), open `index.html`. Write your tests in the file created in the `/spec` dir, and your algorithm in the file in the current dir.
+Write additional tests in the file created in the `/spec` dir, and your algorithm in the file in the current dir.
 
 
 ## License
