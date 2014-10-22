@@ -15,8 +15,8 @@ var TestGenerator = module.exports = function TestGenerator(args, options, confi
   this.on('end', function () {
     // this.installDependencies({ skipInstall: options['skip-install'] });
     this.installDependencies({
+      npm: this.environment === 'Node' ? true : false,
       bower: this.environment === 'browser' ? true : false,
-      npm: true,
       skipInstall: options['skip-install'],
       callback: function() {
         console.log('Everything is ready!');
