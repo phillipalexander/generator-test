@@ -7,14 +7,9 @@ var yeoman = require('yeoman-generator');
 var helpers = yeoman.test;
 var assert = yeoman.assert;
 
-var expectedFiles = [
-  '.jshintrc',
-  '.editorconfig',
-  '.bowerrc',
-  'package.json',
-  'bower.json',
-  'index.html'
-];
+var expectedFiles = ['.bowerrc', 'bower.json', 'index.html'];
+var unexpectedFiles = ['package.json'];
+
 
 describe('test browser generator', function () {
 
@@ -25,7 +20,7 @@ describe('test browser generator', function () {
     helpers.run(path.join(__dirname, '../app'))
       .inDir(path.join(__dirname, './temp'))
       .withOptions({
-        'skip-install': true 
+        'skip-install': true
       })
       .withPrompt({
         'environment': 'browser',
@@ -39,18 +34,16 @@ describe('test browser generator', function () {
         assert.file(expected);
         assert.fileContent('algorithm.js', /var algorithm = function ()/);
         assert.fileContent('bower.json', /chai/);
-        assert.noFileContent('package.json', /chai/);
         assert.noFileContent('./spec/algorithm.js', /require/);
         done();
       });
   });
 
   it('leaves existing files intact when they exist', function (done) {
-
     helpers.run(path.join(__dirname, '../app'))
       .inDir(path.join(__dirname, './temp'))
       .withOptions({
-        'skip-install': true 
+        'skip-install': true
       })
       .withPrompt({
         'environment': 'browser',
@@ -58,7 +51,7 @@ describe('test browser generator', function () {
       })
       .on('ready', function (generator) {
         var js = "var myAlgo = function () { return { method: function () {} }; };";
-        fs.writeFileSync(path.join(__dirname, './temp/myAlgo.js'), js); 
+        fs.writeFileSync(path.join(__dirname, './temp/myAlgo.js'), js);
       })
       .on('end', function () {
         var expected = expectedFiles.concat([
@@ -69,7 +62,6 @@ describe('test browser generator', function () {
         assert.fileContent('myAlgo.js', /myAlgo/);
         assert.noFileContent('./spec/myAlgo.js', /require/);
         assert.fileContent('bower.json', /chai/);
-        assert.noFileContent('package.json', /chai/);
         // doesn't work as expected; figure out a better way to do this.
         // eval(fs.readFileSync(path.join(__dirname, './temp/myAlgo.js'), 'utf8'));
         // assert.implement(myAlgo(), ['method']);

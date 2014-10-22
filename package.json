@@ -13,7 +13,7 @@
   "bugs": "https://github.com/phillipalexander/generator-test/issues",
   "author": {
     "name": "Phillip Alexander",
-    "email": "",
+    "email": "git@phillipalexander.io",
     "url": "https://github.com/phillipalexander"
   },
   "main": "app/index.js",

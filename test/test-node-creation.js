@@ -7,13 +7,8 @@ var yeoman = require('yeoman-generator');
 var helpers = yeoman.test;
 var assert = yeoman.assert;
 
-var expectedFiles = [
-  '.jshintrc',
-  '.editorconfig',
-  '.bowerrc',
-  'package.json',
-  'bower.json'
-];
+var expectedFiles = ['package.json'];
+var unexpectedFiles = ['bower.json', '.bowerrc'];
 
 describe('test node generator', function () {
 
@@ -24,7 +19,7 @@ describe('test node generator', function () {
     helpers.run(path.join(__dirname, '../app'))
       .inDir(path.join(__dirname, './temp'))
       .withOptions({
-        'skip-install': true 
+        'skip-install': true
       })
       .withPrompt({
         'environment': 'Node',
@@ -36,10 +31,10 @@ describe('test node generator', function () {
           'algorithm.js'
         ]);
         assert.file(expected);
+        assert.noFile(unexpectedFiles);
         assert.fileContent('algorithm.js', /module\.exports = algorithm/);
         assert.fileContent('./spec/algorithm.js', /require/);
         assert.fileContent('package.json', /chai/);
-        assert.noFileContent('bower.json', /chai/);
         done();
       });
   });
@@ -48,7 +43,7 @@ describe('test node generator', function () {
     helpers.run(path.join(__dirname, '../app'))
       .inDir(path.join(__dirname, './temp'))
       .withOptions({
-        'skip-install': true 
+        'skip-install': true
       })
       .withPrompt({
         'environment': 'Node',
@@ -56,7 +51,7 @@ describe('test node generator', function () {
       })
       .on('ready', function (generator) {
         var js = "var myAlgo = function () { return { method: function () {} }; }; module.exports = myAlgo;";
-        fs.writeFileSync(path.join(__dirname, './temp/myAlgo.js'), js); 
+        fs.writeFileSync(path.join(__dirname, './temp/myAlgo.js'), js);
       })
       .on('end', function () {
         var expected = expectedFiles.concat([
@@ -64,10 +59,10 @@ describe('test node generator', function () {
           'myAlgo.js'
         ]);
         assert.file(expected);
+        assert.noFile(unexpectedFiles);
         assert.fileContent('myAlgo.js', /myAlgo/);
         assert.fileContent('./spec/myAlgo.js',  /require/);
         assert.fileContent('package.json', /chai/);
-        assert.noFileContent('bower.json', /chai/);
         assert.implement(require('./temp/myAlgo.js')(), ['method']);
         done();
       });

@@ -13,8 +13,17 @@ var TestGenerator = module.exports = function TestGenerator(args, options, confi
   this.appname = this._.camelize(this._.slugify(this._.humanize(this.appname)));
 
   this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+    // this.installDependencies({ skipInstall: options['skip-install'] });
+    this.installDependencies({
+      bower: this.environment === 'browser' ? true : false,
+      npm: true,
+      skipInstall: options['skip-install'],
+      callback: function() {
+        console.log('Everything is ready!');
+      }
+    });
   });
+
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
@@ -68,20 +77,22 @@ TestGenerator.prototype.askFor = function askFor() {
 TestGenerator.prototype.app = function projectFiles() {
   var fileExists = fs.existsSync(path.resolve(process.cwd(), this.file));
 
+  // scaffold out the tests based on env
   if (this.environment === 'Node') {
     this.template('_spec-node.js', 'spec/' + this.file);
-  } else {
+    this.template('_package.json', 'package.json');
+  } else if (this.environment === 'browser') {
     this.template('_index.html', 'index.html');
     this.template('_spec-browser.js', 'spec/' + this.file);
+    this.template('_bower.json', 'bower.json');
+    this.copy('bowerrc', '.bowerrc');
   }
 
+  // Create the src file if one doesn't already exist
   if (!fileExists) {
     this.template((this.environment === 'Node' ? '_src-node.js' : '_src-browser.js'), this.file);
   }
-  
-  this.template('_package.json', 'package.json');
-  this.template('_bower.json', 'bower.json');
-  this.copy('editorconfig', '.editorconfig');
-  this.copy('jshintrc', '.jshintrc');
-  this.copy('bowerrc', '.bowerrc');
+
+  // this.copy('editorconfig', '.editorconfig');
+  // this.copy('jshintrc', '.jshintrc');
 };
