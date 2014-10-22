@@ -1,11 +1,48 @@
 # generator-test
 
-A simple generator for [Yeoman](http://yeoman.io) that makes it easy to start using Test Driven Development (TDD) while you karate-chop your way through algorthim-based programming challenges.
+A simple generator for [Yeoman](http://yeoman.io) that makes it easy to start writing [unit tests](http://en.wikipedia.org/wiki/Unit_testing) and use Test Driven Development (TDD) while you karate-chop your way through algorthim-based programming challenges.
 
 
-## Getting Started
+## Introduction
 
-This generator creates a simple mocha/chai TDD scaffold for your algorithm solution in the following format:
+### What's Yeoman?
+
+From wikipedia:
+> Yeoman is an open source client-side development stack, consisting of tools and frameworks intended to help developers quickly build high quality web applications. Yeoman runs as a command-line interface written in Node.js which combines several functions into one place, such as generating a starter template, managing dependencies, running unit tests, providing a local development server, and optimizing production code for deployment.
+
+### Generators
+
+After installing Yeoman, you'll use generators to scaffold out specific types of applications. A generator is basically a plugin that can be run with the `yo` command to scaffold complete projects or useful parts. Examining the architechtures that popular (well-built) generators produce is a fantastic way to learn how well-established software engineers think about structuring their applications. There are generators that help you scaffold out applications built in [Angular](https://github.com/DaftMonk/generator-angular-fullstack), [Backbone](https://github.com/yeoman/generator-backbone), as [Chrome Extentions](https://github.com/yeoman/generator-chrome-extension), and pretty much [anything else you can imagine](http://yeoman.io/generators/).
+
+## Installation
+
+### Yeoman
+
+
+This generator is built using Yeoman, so you'll need to install that first with,
+
+```
+$ npm install -g yo
+```
+
+### Generator-Test
+
+
+After installing Yeoman, install generator-test from npm:
+
+```
+$ npm install -g generator-test
+```
+
+cd to (or create) your project directory, then initiate the generator:
+
+```
+$ yo test
+```
+
+### Usage
+
+This genertor can build tests for/around JavaScript designed to be run in the browser, or code meant to be run using Node.js. It creates a simple mocha/chai TDD scaffold for your algorithm solution in the following general format:
 
 ```
 solution
@@ -23,36 +60,6 @@ solution
 If the current working directory already contains any JavaScript files, then you'll be asked which of them you wish to write tests for. If there are no js files present, a starter file will be generated for you.
 
 After runnning the generator (see below), open `index.html`. Write your tests in the file created in the `/spec` dir, and your algorithm in the file in the current dir.
-
-### What is Yeoman?
-
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
-
-```
-$ npm install -g yo
-```
-
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-test from npm, run:
-
-```
-$ npm install -g generator-test
-```
-
-Finally, initiate the generator:
-
-```
-$ yo test
-```
 
 
 ## License
