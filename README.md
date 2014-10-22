@@ -28,7 +28,7 @@ $ npm install -g yo
 ### Generator-Test
 
 
-Then nstall generator-test from npm:
+Then install generator-test from npm:
 
 ```
 $ npm install -g generator-test
