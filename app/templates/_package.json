@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {<% if (environment === "Node") { %>
-      "chai": "~1.8.0"
+      "chai": "~1.8.0",
+      "mocha":"2.0.1"
   <% } %>},
   "scripts": {<% if (environment === "Node") { %>
     "test": "mocha ./spec/<%= file %>"
