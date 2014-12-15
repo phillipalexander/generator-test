@@ -1,6 +1,6 @@
 # generator-test [![Circle CI](https://circleci.com/gh/phillipalexander/generator-test.png?style=badge)](https://circleci.com/gh/phillipalexander/generator-test)
 
-A simple generator for [Yeoman](http://yeoman.io) that makes it easy to start writing [unit tests](http://en.wikipedia.org/wiki/Unit_testing) and use Test Driven Development (TDD) while you karate-chop your way through algorthim-based programming challenges.
+A simple generator for [Yeoman](http://yeoman.io) that makes it easy to start writing [unit tests](http://en.wikipedia.org/wiki/Unit_testing) and use Test Driven Development (TDD) while you karate-chop your way through algorithm-based programming challenges.
 
 
 ## Introduction
