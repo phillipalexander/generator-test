@@ -12,7 +12,7 @@ From wikipedia:
 
 ### Generators
 
-After installing Yeoman, you'll use generators to scaffold out specific types of applications. A generator is basically a plugin that can be run with the `yo` command to scaffold complete projects or useful parts. Examining the architechtures that popular (well-built) generators produce is a fantastic way to learn how well-established software engineers think about structuring their applications. There are generators that help you scaffold out applications built in [Angular](https://github.com/DaftMonk/generator-angular-fullstack), [Backbone](https://github.com/yeoman/generator-backbone), as [Chrome Extentions](https://github.com/yeoman/generator-chrome-extension), and pretty much [anything else you can imagine](http://yeoman.io/generators/).
+After installing Yeoman, you'll use generators to scaffold out specific types of applications. A generator is basically a plugin that can be run with the `yo` command to scaffold complete projects or useful parts. Examining the architectures that popular (well-built) generators produce is a fantastic way to learn how well-established software engineers think about structuring their applications. There are generators that help you scaffold out applications built in [Angular](https://github.com/DaftMonk/generator-angular-fullstack), [Backbone](https://github.com/yeoman/generator-backbone), as [Chrome Extentions](https://github.com/yeoman/generator-chrome-extension), and pretty much [anything else you can imagine](http://yeoman.io/generators/).
 
 ## Installation
 
