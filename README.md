@@ -76,7 +76,7 @@ solution
 └── algorithm.js
 ```
 
-After runnning the generator in Node mode, run the tests via `npm test`.
+After running the generator in Node mode, run the tests via `npm test`.
 
 ### Wrapping Up
 
