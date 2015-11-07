@@ -64,12 +64,12 @@ After runnning the generator in browser mode, run the tests by opening `index.ht
 
 #### Node
 
-If you select 'Node' when prompted, A simple mocha/chai TDD scaffold for your algorithm solution with the following folder structure will be created:
+If you select 'Node' when prompted, you will be prompted to choose the assert style to use: expect or should. A simple mocha/{chai.expect|should.js} TDD scaffold for your algorithm solution with the following folder structure will be created:
 
 ``` bash
 solution
 ├── node_modules
-│   └── chai
+│   └── {chai|should}
 ├── package.json
 ├── spec
 │   └── algorithm.js
