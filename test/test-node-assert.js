@@ -33,7 +33,7 @@ describe('test assertion selector', function () {
         assert.fileContent('algorithm.js', /module\.exports = algorithm/);
         assert.fileContent('./spec/algorithm.js', /require/);
         assert.fileContent('package.json', /should/);
-        assert.fileContent('spec/algorithm.js', /should/);
+        assert.fileContent('./spec/algorithm.js', /should/);
         done();
       });
   });
@@ -59,7 +59,7 @@ describe('test assertion selector', function () {
         assert.fileContent('algorithm.js', /module\.exports = algorithm/);
         assert.fileContent('./spec/algorithm.js', /require/);
         assert.fileContent('package.json', /chai/);
-        assert.fileContent('spec/algorithm.js', /expect/);
+        assert.fileContent('./spec/algorithm.js', /expect/);
         done();
       });
   });
