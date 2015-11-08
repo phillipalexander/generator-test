@@ -3,7 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {<% if (environment === "Node") { %>
+    <% switch( assertstyle ) { 
+      case "expect": %>
       "chai": "~1.8.0",
+    <% break;
+      case "should": %>
+      "should": "^7.1.1",
+    <% break;
+    } %>
       "mocha":"2.0.1"
   <% } %>},
   "scripts": {<% if (environment === "Node") { %>

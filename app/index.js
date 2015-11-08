@@ -51,6 +51,15 @@ TestGenerator.prototype.askFor = function askFor() {
     default: 'browser'
   });
 
+  prompts.push({
+    when: function(answers) { return answers.environment === 'Node'; },
+    type: 'list',
+    name: 'assertstyle',
+    message: 'Which assertion style do you want to use?',
+    choices: ['expect', 'should'],
+    default: 'expect'
+  });
+
   if (jsFiles.length === 0) {
     prompts.push({
       name: 'algorithm',
@@ -70,6 +79,7 @@ TestGenerator.prototype.askFor = function askFor() {
     this.file = response.file || response.algorithm + '.js';
     this.algorithm = response.algorithm || response.file.split('.')[0];
     this.environment = response.environment || 'browser';
+    this.assertstyle = response.assertstyle || "expect";
     cb();
   }.bind(this));
 };
