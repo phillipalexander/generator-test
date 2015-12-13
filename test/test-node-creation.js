@@ -36,6 +36,7 @@ describe('test node generator', function () {
         assert.fileContent('algorithm.js', /module\.exports = algorithm/);
         assert.fileContent('./spec/algorithm.js', /require/);
         assert.fileContent('package.json', /chai/);
+        assert.fileContent('package.json', /devDependencies/);
         done();
       });
   });
@@ -65,6 +66,7 @@ describe('test node generator', function () {
         assert.fileContent('myAlgo.js', /myAlgo/);
         assert.fileContent('./spec/myAlgo.js',  /require/);
         assert.fileContent('package.json', /chai/);
+        assert.fileContent('package.json', /devDependencies/);
         assert.implement(require('./temp/myAlgo.js')(), ['method']);
         done();
       });
