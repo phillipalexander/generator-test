@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "mocha": "~1.14.0",
-    "chai": "~3.4.0"
+    "chai": "~3.5.0"
   },
   "peerDependencies": {
     "yo": ">=1.4.8"
